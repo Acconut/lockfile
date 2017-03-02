@@ -78,7 +78,7 @@ func (l Lockfile) TryLock() error {
 		panic(ErrNeedAbsPath)
 	}
 
-	tmplock, err := ioutil.TempFile(filepath.Dir(name), "")
+	tmplock, err := ioutil.TempFile(filepath.Dir(name), filepath.Base(name)+".")
 	if err != nil {
 		return err
 	}
